@@ -1,1 +1,38 @@
-
+$session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
+$session.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+$session.Cookies.Add((New-Object System.Net.Cookie("__Secure-recent_mfa", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjAwNTMzMjMsIm5iZiI6MTcyMDA1MzMyMywiZXhwIjoxNzIwMDUzNjIzLCJpc3MiOiJ1cm46ZGlzY29yZC1hcGkiLCJhdWQiOiJ1cm46ZGlzY29yZC1tZmEtcmVwcm9tcHQiLCJ1c2VyIjoxNDUyNTk4MTM0NjU0ODk0MDl9.besvlZdRq7pIQ7856IBrCxa4PeqTNvmSNXRUccIzAm_X8GJplEvtufIUdYIjvYbNmSPlezyy2oYFZ7prX_Nx3Q", "/", "discord.com")))
+$session.Cookies.Add((New-Object System.Net.Cookie("__dcfduid", "a0bd1a90317f11ef9961497fefea94aa", "/", "discord.com")))
+$session.Cookies.Add((New-Object System.Net.Cookie("__sdcfduid", "a0bd1a91317f11ef9961497fefea94aafefd860116563ccf74badc07508dd9e509d6f0f0e12b891c1ba8a944f8deff69", "/", "discord.com")))
+$session.Cookies.Add((New-Object System.Net.Cookie("__cfruid", "92889e84b7b79da9468a49ad997c6b49ba0ee504-1720053300", "/", ".discord.com")))
+$session.Cookies.Add((New-Object System.Net.Cookie("_cfuvid", "Oaw7RMgORPBRb6o4TB1X1eyVimN8nbM7OlZBU3thaDE-1720053300435-0.0.1.1-604800000", "/", ".discord.com")))
+$session.Cookies.Add((New-Object System.Net.Cookie("cf_clearance", "RjZ1Zo531Jh4axQ8mNfa4alPPSI9M7E3N.ACMTTslhY-1720053301-1.0.1.1-Olv_Kd7m5f6jYOa5iQC.7D.HIaREWJs2FlGXv.c8CwIpOAIdYQ8lmw_TCUdVGhf1XJNjMn7QEJ92.19kT63SMg", "/", ".discord.com")))
+$session.Cookies.Add((New-Object System.Net.Cookie("locale", "en-US", "/", "discord.com")))
+$session.Cookies.Add((New-Object System.Net.Cookie("OptanonConsent", "isIABGlobal=false&datestamp=Thu+Jul+04+2024+01%3A35%3A01+GMT%2B0100+(British+Summer+Time)&version=6.33.0&hosts=&landingPath=https%3A%2F%2Fdiscord.com%2F&groups=C0001%3A1%2CC0002%3A0%2CC0003%3A0", "/", ".discord.com")))
+Invoke-WebRequest -UseBasicParsing -Uri "https://discord.com/api/v9/channels/1258219633756999773/messages" `
+-Method "POST" `
+-WebSession $session `
+-Headers @{
+"authority"="discord.com"
+  "method"="POST"
+  "path"="/api/v9/channels/1258219633756999773/messages"
+  "scheme"="https"
+  "accept"="*/*"
+  "accept-encoding"="gzip, deflate, br, zstd"
+  "accept-language"="en-US"
+  "authorization"="MTQ1MjU5ODEzNDY1NDg5NDA5.GTnPPw.Jx_IjpS4wtkiNBR12Is0UatE5Of_IezDLVDa4c"
+  "origin"="https://discord.com"
+  "priority"="u=1, i"
+  "referer"="https://discord.com/channels/1258219633756999770/1258219633756999773"
+  "sec-ch-ua"="`"Not)A;Brand`";v=`"99`", `"Google Chrome`";v=`"127`", `"Chromium`";v=`"127`""
+  "sec-ch-ua-mobile"="?0"
+  "sec-ch-ua-platform"="`"Windows`""
+  "sec-fetch-dest"="empty"
+  "sec-fetch-mode"="cors"
+  "sec-fetch-site"="same-origin"
+  "x-debug-options"="bugReporterEnabled"
+  "x-discord-locale"="en-US"
+  "x-discord-timezone"="Europe/London"
+  "x-super-properties"="eyJvcyI6IldpbmRvd3MiLCJicm93c2VyIjoiQ2hyb21lIiwiZGV2aWNlIjoiIiwic3lzdGVtX2xvY2FsZSI6ImVuLVVTIiwiYnJvd3Nlcl91c2VyX2FnZW50IjoiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEyNy4wLjAuMCBTYWZhcmkvNTM3LjM2IiwiYnJvd3Nlcl92ZXJzaW9uIjoiMTI3LjAuMC4wIiwib3NfdmVyc2lvbiI6IjEwIiwicmVmZXJyZXIiOiIiLCJyZWZlcnJpbmdfZG9tYWluIjoiIiwicmVmZXJyZXJfY3VycmVudCI6IiIsInJlZmVycmluZ19kb21haW5fY3VycmVudCI6IiIsInJlbGVhc2VfY2hhbm5lbCI6InN0YWJsZSIsImNsaWVudF9idWlsZF9udW1iZXIiOjMwNzM5MiwiY2xpZW50X2V2ZW50X3NvdXJjZSI6bnVsbCwiZGVzaWduX2lkIjowfQ=="
+} `
+-ContentType "application/json" `
+-Body "{`"mobile_network_type`":`"unknown`",`"content`":`"``````test```````",`"nonce`":`"1258223144078934016`",`"tts`":false,`"flags`":0}"
